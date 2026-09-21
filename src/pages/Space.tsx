@@ -89,16 +89,8 @@ export default function Space() {
       {/* Floor cards */}
       <section className="py-20 lg:py-32 px-6 lg:px-10 max-w-[1400px] mx-auto flex flex-col gap-16 lg:gap-24">
         {floors.map((floor, i) => (
-          <div key={floor.num}>
-          {i === 1 && (
-            <div className="flex items-center gap-3 mb-16 lg:mb-24 -mt-8 lg:-mt-16">
-              <span className="text-lg leading-none">🧗</span>
-              <span className="font-korean text-xs font-medium text-[#1E1E1E]/50">
-                1F ↔ 2F, 대형 정글짐 하나로 연결되는 구조예요
-              </span>
-            </div>
-          )}
           <div
+            key={floor.num}
             className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${
               i % 2 === 1 ? 'lg:[direction:rtl]' : ''
             }`}
@@ -165,7 +157,6 @@ export default function Space() {
                 {floor.floor} EXPLORE
               </Link>
             </div>
-          </div>
           </div>
         ))}
       </section>

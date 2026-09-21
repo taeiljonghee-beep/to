@@ -100,10 +100,10 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 border-b border-[#1E1E1E]/10">
             {[
-              { word: 'KIDS', sub: '키즈 공간', color: '#F0D94A', hover: 'hover:bg-[#EF8C72]', href: '/kids-space' },
-              { word: 'POOL', sub: '실내 수영장', color: '#85C4DC', hover: 'hover:bg-[#F0D94A]', href: '/pool-play' },
-              { word: 'PLAY', sub: '놀이 & 엔터테인먼트', color: '#EF8C72', hover: 'hover:bg-[#8ECFC0]', href: '/pool-play' },
-              { word: 'STAY', sub: '편안한 숙박', color: '#C2B0E8', hover: 'hover:bg-[#85C4DC]', href: '/stay' },
+              { word: 'KIDS', sub: '키즈 공간', color: '#F0D94A', hover: 'hover:bg-[#544C1A]', href: '/kids-space' },
+              { word: 'POOL', sub: '실내 수영장', color: '#85C4DC', hover: 'hover:bg-[#2F454D]', href: '/pool-play' },
+              { word: 'PLAY', sub: '놀이 & 엔터테인먼트', color: '#EF8C72', hover: 'hover:bg-[#543128]', href: '/pool-play' },
+              { word: 'STAY', sub: '편안한 숙박', color: '#C2B0E8', hover: 'hover:bg-[#3D1F52]', href: '/stay' },
             ].map((item) => (
               <Link
                 key={item.word}
@@ -116,7 +116,7 @@ export default function Home() {
                 >
                   {item.word}
                 </span>
-                <span className="font-korean text-[11px] text-[#1E1E1E]/50 group-hover:text-[#1E1E1E]/70 transition-colors duration-300 mt-8 tracking-wide">
+                <span className="font-korean text-[11px] text-[#1E1E1E]/50 group-hover:text-white/60 transition-colors duration-300 mt-8 tracking-wide">
                   {item.sub} →
                 </span>
               </Link>
@@ -152,17 +152,9 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-0">
-            {FLOOR_DATA.map((floor, i) => (
-              <div key={floor.num}>
-              {i === 1 && (
-                <div className="flex items-center gap-3 py-3 px-2">
-                  <span className="text-base leading-none">🧗</span>
-                  <span className="font-korean text-[11px] font-medium text-[#1E1E1E]/50">
-                    1F ↔ 2F, 대형 정글짐 하나로 연결되어 오르내리며 놀 수 있어요
-                  </span>
-                </div>
-              )}
+            {FLOOR_DATA.map((floor) => (
               <Link
+                key={floor.num}
                 to={floor.href}
                 className="group flex flex-col lg:flex-row items-stretch border border-[#1E1E1E]/10 hover:border-[#1E1E1E]/30 transition-all duration-300 overflow-hidden"
               >
@@ -196,7 +188,6 @@ export default function Home() {
                   </div>
                 </div>
               </Link>
-              </div>
             ))}
           </div>
         </div>
@@ -334,15 +325,15 @@ export default function Home() {
                 작은 선택까지<br />투리버답게.
               </h2>
             </div>
-            <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="flex-1 flex flex-col sm:flex-row sm:items-end gap-4">
               {[
-                { label: '테이블웨어', sub: '컬러 식기 디테일', color: '#F0D94A' },
-                { label: '키친 디테일', sub: '선별한 주방 소품', color: '#EF8C72' },
-                { label: '인테리어 오브제', sub: '공간의 컬러 포인트', color: '#8ECFC0' },
+                { label: '테이블웨어', sub: '컬러 식기 디테일', color: '#F0D94A', h: 'h-64 lg:h-80' },
+                { label: '키친 디테일', sub: '선별한 주방 소품', color: '#EF8C72', h: 'h-72 lg:h-96' },
+                { label: '인테리어 오브제', sub: '공간의 컬러 포인트', color: '#8ECFC0', h: 'h-56 lg:h-72' },
               ].map((d) => (
                 <div
                   key={d.label}
-                  className="relative overflow-hidden aspect-[4/5]"
+                  className={`relative overflow-hidden flex-1 ${d.h}`}
                   style={{ background: `linear-gradient(160deg, ${d.color}30, ${d.color})` }}
                 >
                   <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
