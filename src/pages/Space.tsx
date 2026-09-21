@@ -91,15 +91,12 @@ export default function Space() {
         {floors.map((floor, i) => (
           <div
             key={floor.num}
-            className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${
-              i % 2 === 1 ? 'lg:[direction:rtl]' : ''
+            className={`flex flex-col lg:flex-row gap-8 items-center ${
+              i % 2 === 1 ? 'lg:flex-row-reverse' : ''
             }`}
           >
             {/* Image */}
-            <div
-              className="lg:col-span-7 relative overflow-hidden"
-              style={{ direction: 'ltr' }}
-            >
+            <div className="w-full lg:w-7/12 relative overflow-hidden shrink-0">
               <div
                 className="absolute top-4 left-4 z-10 font-display font-black text-6xl lg:text-8xl opacity-20 pointer-events-none"
                 style={{ color: floor.color }}
@@ -113,10 +110,7 @@ export default function Space() {
               />
             </div>
             {/* Text */}
-            <div
-              className="lg:col-span-5 flex flex-col gap-4"
-              style={{ direction: 'ltr' }}
-            >
+            <div className="w-full lg:w-5/12 flex flex-col gap-4">
               <div className="flex items-center gap-4">
                 <span
                   className="font-display font-black text-5xl lg:text-7xl"

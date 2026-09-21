@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 import PhotoPlaceholder from '../components/PhotoPlaceholder';
 
 const amenities = [
-  { label: '침실', icon: '🛏', desc: '편안한 침구와 넉넉한 수납 공간' },
-  { label: '욕실', icon: '🚿', desc: '깔끔한 욕실과 어메니티 세트' },
-  { label: '주방', icon: '🍳', desc: '완비된 주방 및 컬러풀한 식기 세트' },
-  { label: '다이닝', icon: '🍽', desc: '온 가족이 함께하는 넓은 식탁' },
-  { label: '세탁', icon: '👕', desc: '세탁기 및 건조기 구비' },
-  { label: 'Wi-Fi', icon: '📶', desc: '초고속 인터넷 무선 제공' },
-  { label: '주차', icon: '🚗', desc: '전용 주차 공간 제공' },
-  { label: '냉난방', icon: '❄️', desc: '개별 냉난방 시스템' },
+  { label: '침실', icon: '🛏', desc: '편안한 침구와 넉넉한 수납 공간', bg: '#FBF6D0' },
+  { label: '욕실', icon: '🚿', desc: '깔끔한 욕실과 어메니티 세트', bg: '#E0F1FA' },
+  { label: '주방', icon: '🍳', desc: '완비된 주방 및 컬러풀한 식기 세트', bg: '#FDE8E1' },
+  { label: '다이닝', icon: '🍽', desc: '온 가족이 함께하는 넓은 식탁', bg: '#E2F5F1' },
+  { label: '세탁', icon: '👕', desc: '세탁기 및 건조기 구비', bg: '#EDE8F8' },
+  { label: 'Wi-Fi', icon: '📶', desc: '초고속 인터넷 무선 제공', bg: '#FBF6D0' },
+  { label: '주차', icon: '🚗', desc: '전용 주차 공간 제공', bg: '#E0F1FA' },
+  { label: '냉난방', icon: '❄️', desc: '개별 냉난방 시스템', bg: '#FDE8E1' },
 ];
 
 export default function Stay() {
@@ -75,20 +75,20 @@ export default function Stay() {
       </section>
 
       {/* Amenities grid */}
-      <section className="bg-[#1E1E1E] py-20 lg:py-28 px-6 lg:px-10">
+      <section className="bg-[#F9F8F4] py-20 lg:py-28 px-6 lg:px-10">
         <div className="max-w-[1400px] mx-auto">
-          <p className="font-display font-bold text-[10px] tracking-widest text-[#C2B0E8] mb-3">
+          <p className="font-display font-bold text-[10px] tracking-widest text-[#3D1F52]/50 mb-3">
             — AMENITIES
           </p>
-          <h2 className="font-display font-black text-white text-5xl lg:text-7xl mb-16 leading-none">
+          <h2 className="font-display font-black text-[#1E1E1E] text-5xl lg:text-7xl mb-16 leading-none">
             ALL<br />INCLUDED.
           </h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {amenities.map((a) => (
-              <div key={a.label} className="bg-[#1E1E1E] p-6 lg:p-8 flex flex-col gap-3 hover:bg-[#2A2A2A] transition-colors">
+              <div key={a.label} className="p-6 lg:p-8 flex flex-col gap-3" style={{ backgroundColor: a.bg }}>
                 <span className="text-2xl">{a.icon}</span>
-                <div className="font-display font-black text-xl text-white">{a.label}</div>
-                <div className="font-korean text-white/40 text-sm">{a.desc}</div>
+                <div className="font-display font-black text-xl text-[#1E1E1E]">{a.label}</div>
+                <div className="font-korean text-[#1E1E1E]/50 text-sm">{a.desc}</div>
               </div>
             ))}
           </div>

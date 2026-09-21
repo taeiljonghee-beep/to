@@ -100,15 +100,15 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 border-b border-[#1E1E1E]/10">
             {[
-              { word: 'KIDS', sub: '키즈 공간', color: '#F0D94A', hover: 'hover:bg-[#544C1A]', href: '/kids-space' },
-              { word: 'POOL', sub: '실내 수영장', color: '#85C4DC', hover: 'hover:bg-[#2F454D]', href: '/pool-play' },
-              { word: 'PLAY', sub: '놀이 & 엔터테인먼트', color: '#EF8C72', hover: 'hover:bg-[#543128]', href: '/pool-play' },
-              { word: 'STAY', sub: '편안한 숙박', color: '#C2B0E8', hover: 'hover:bg-[#3D1F52]', href: '/stay' },
+              { word: 'KIDS', sub: '키즈 공간', color: '#F0D94A', href: '/kids-space' },
+              { word: 'POOL', sub: '실내 수영장', color: '#85C4DC', href: '/pool-play' },
+              { word: 'PLAY', sub: '놀이 & 엔터테인먼트', color: '#EF8C72', href: '/pool-play' },
+              { word: 'STAY', sub: '편안한 숙박', color: '#C2B0E8', href: '/stay' },
             ].map((item) => (
               <Link
                 key={item.word}
                 to={item.href}
-                className={`group flex flex-col items-start justify-between p-8 lg:p-12 border-r border-[#1E1E1E]/10 last:border-r-0 ${item.hover} transition-colors duration-300 cursor-pointer`}
+                className="group flex flex-col items-start justify-between p-8 lg:p-12 border-r border-[#1E1E1E]/10 last:border-r-0 hover:bg-[#1E1E1E] transition-colors duration-300 cursor-pointer"
               >
                 <span
                   className="font-display font-black leading-none"

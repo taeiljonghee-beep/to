@@ -70,26 +70,10 @@ export default function PoolPlay() {
         </div>
       </section>
 
-      {/* Quick nav */}
-      <section className="border-b border-[#1E1E1E]/10 sticky top-16 bg-[#F9F8F4] z-30">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 flex overflow-x-auto gap-0">
-          {sections.map((s) => (
-            <a
-              key={s.id}
-              href={`#${s.id}`}
-              className="shrink-0 px-6 py-4 font-display font-bold text-[11px] tracking-widest text-[#1E1E1E]/50 hover:text-[#1E1E1E] border-b-2 border-transparent hover:border-[#1E1E1E] transition-all"
-            >
-              {s.label}
-            </a>
-          ))}
-        </div>
-      </section>
-
       {/* Sections */}
       {sections.map((s, i) => (
         <section
           key={s.id}
-          id={s.id}
           className="py-20 lg:py-0 border-b border-[#1E1E1E]/10"
         >
           <div className={`flex flex-col lg:flex-row ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
