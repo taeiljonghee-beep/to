@@ -22,8 +22,8 @@ const spaces = [
   },
   {
     label: 'SAUNA',
-    kor: '사우나 / 찜질방',
-    desc: '하루의 놀이를 마치고 몸을 풀어주는 사우나 공간. 어른들을 위한 특별한 휴식의 시간.',
+    kor: '사우나 / 편백 찜질방',
+    desc: '편백으로 마감한 찜질방과 사우나. 하루의 놀이를 마치고 몸을 풀어주는, 어른들을 위한 특별한 휴식의 시간.',
     color: '#EF8C72',
   },
 ];
@@ -53,7 +53,7 @@ export default function Floor3() {
             </div>
             <div className="lg:col-span-4 lg:pb-6">
               <p className="font-korean text-[#3D1F52]/70 text-sm lg:text-base leading-relaxed">
-                3층은 충분한 휴식을 위한 공간입니다. 차분한 분위기의 침실과 테라스, 사우나까지 — 놀이 후 가족 모두가 편안히 쉴 수 있는 레스트 플로어.
+                3층은 충분한 휴식을 위한 공간입니다. 차분한 분위기의 침실과 테라스, 편백 찜질방까지 — 아이들이 노는 동안 어른들도 마음껏 쉴 수 있는 레스트 플로어.
               </p>
             </div>
           </div>

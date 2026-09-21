@@ -5,7 +5,7 @@ const spaces = [
   {
     label: 'JUNGLE GYM',
     kor: '대형 정글짐',
-    desc: '3층 규모의 대형 정글짐. 슬라이드, 클라이밍, 터널 등 다양한 놀이 요소로 구성되어 있습니다.',
+    desc: '1층과 2층을 잇는 초대형 정글짐. 슬라이드, 클라이밍, 터널을 타고 오르내리며 두 층을 자유롭게 오갈 수 있습니다.',
     color: '#F0D94A',
   },
   {
@@ -16,20 +16,20 @@ const spaces = [
   },
   {
     label: 'BBQ AREA',
-    kor: '실내 바베큐',
+    kor: '바베큐장',
     desc: '날씨에 상관없이 즐길 수 있는 실내 바베큐 공간. 그릴 장비와 기본 도구가 준비되어 있습니다.',
     color: '#EF8C72',
   },
   {
     label: 'KARAOKE',
-    kor: '카라오케 / 엔터테인먼트',
-    desc: '가족 모두가 즐길 수 있는 노래방 시스템과 다양한 엔터테인먼트 공간.',
+    kor: '노래방',
+    desc: '가족 모두가 즐길 수 있는 노래방 시스템. 최신 곡부터 동요까지 함께 즐겨보세요.',
     color: '#C2B0E8',
   },
   {
-    label: 'DINING',
-    kor: '다이닝 & 주방',
-    desc: '넓은 다이닝 공간과 완비된 주방. 정성스럽게 선별한 컬러풀한 식기와 주방 용품.',
+    label: 'LIVING ROOM',
+    kor: '거실',
+    desc: '온 가족이 모여 쉬어가는 넓은 거실 공간.',
     color: '#8ECFC0',
   },
 ];
@@ -60,7 +60,7 @@ export default function Floor1() {
             </div>
             <div className="lg:col-span-4 lg:pb-6">
               <p className="font-korean text-[#1E1E1E]/70 text-sm lg:text-base leading-relaxed">
-                1층은 아이들을 위한 핵심 놀이 공간이 모여 있는 플레이 플로어입니다. 대형 정글짐부터 실내 수영장, 바베큐, 카라오케까지 다양한 활동을 즐길 수 있습니다.
+                1층은 바베큐장·수영장·거실·노래방이 모인 플레이 플로어입니다. 초대형 정글짐이 2층 키즈룸까지 이어져, 아래위를 오가며 놀 수 있어요.
               </p>
             </div>
           </div>

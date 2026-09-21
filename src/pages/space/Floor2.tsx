@@ -3,28 +3,28 @@ import PhotoPlaceholder from '../../components/PhotoPlaceholder';
 
 const spaces = [
   {
-    label: 'CLIMBING WALL',
-    kor: '컬러풀 클라이밍 월',
-    desc: '다양한 색상의 클라이밍 홀드로 구성된 실내 클라이밍 월. 아이들의 신체 발달과 도전 정신을 키워주는 공간입니다.',
+    label: 'KIDS ROOM',
+    kor: '메인 키즈룸',
+    desc: '오락기 2대, LED 우주 조명, 빔프로젝터 터치스크린 게임까지 — 2층 전체를 채우는 대형 키즈 전용 공간입니다.',
     color: '#EF8C72',
   },
   {
-    label: 'FAMILY BEDROOM',
-    kor: '가족 침실',
-    desc: '온 가족이 함께 사용할 수 있는 넓은 가족 침실. 편안한 침구와 수납 공간이 갖춰져 있습니다.',
-    color: '#C2B0E8',
-  },
-  {
-    label: 'ONDOL ROOM',
-    kor: '온돌방',
-    desc: '한국 전통 바닥 난방 시스템의 온돌방. 아이들이 편안하게 뒹굴며 놀 수 있는 따뜻한 공간.',
+    label: 'CLIMBING WALL',
+    kor: '키즈 클라이밍 월',
+    desc: '알록달록한 홀드로 채운 실내 클라이밍 월. 손을 뻗어 오르내리며 체력과 도전 정신을 키워요.',
     color: '#F0D94A',
   },
   {
-    label: 'PLAY ZONE',
-    kor: '어린이 활동 공간',
-    desc: '다양한 어린이 활동과 엔터테인먼트를 위한 전용 공간. 아이들의 상상력이 펼쳐지는 놀이의 무대.',
+    label: 'GAME ZONE',
+    kor: '테이블축구 & 소파',
+    desc: '테이블축구와 편히 쉬는 소파까지 갖춘 놀이 코너. 신나게 놀다 잠깐 쉬어가기도 좋아요.',
     color: '#8ECFC0',
+  },
+  {
+    label: 'JUNGLE GYM LINK',
+    kor: '1층과 연결되는 정글짐',
+    desc: '초대형 정글짐을 타고 오르내리면 1층 플레이 플로어와 곧장 이어집니다.',
+    color: '#C2B0E8',
   },
 ];
 
@@ -46,14 +46,14 @@ export default function Floor2() {
                   2F
                 </span>
                 <div className="pb-4">
-                  <div className="font-display font-black text-3xl lg:text-5xl text-[#1E1E1E]">MOVE</div>
-                  <div className="font-korean text-[#1E1E1E]/50 text-sm mt-1">무브 플로어</div>
+                  <div className="font-display font-black text-3xl lg:text-5xl text-[#1E1E1E]">CLIMB</div>
+                  <div className="font-korean text-[#1E1E1E]/50 text-sm mt-1">키즈룸 플로어</div>
                 </div>
               </div>
             </div>
             <div className="lg:col-span-4 lg:pb-6">
               <p className="font-korean text-[#1E1E1E]/70 text-sm lg:text-base leading-relaxed">
-                2층은 움직임과 활동의 공간입니다. 클라이밍 월에서 도전하고, 온돌방에서 편안히 쉬며, 다양한 놀이 공간에서 아이들의 에너지를 마음껏 발산할 수 있습니다.
+                2층은 오락기, 우주 조명, 클라이밍 월, 테이블축구까지 갖춘 대형 키즈룸 한 층입니다. 초대형 정글짐을 타고 오르내리면 1층과 곧장 이어져요.
               </p>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function Floor2() {
             ← 1F PLAY
           </Link>
           <div className="font-display font-black text-white text-2xl">
-            <span className="text-[#EF8C72]">2F</span> MOVE
+            <span className="text-[#EF8C72]">2F</span> CLIMB
           </div>
           <Link to="/space/3f" className="font-display font-bold text-[11px] tracking-widest text-white/50 hover:text-white transition-colors">
             3F REST →

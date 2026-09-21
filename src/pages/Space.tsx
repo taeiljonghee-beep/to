@@ -7,7 +7,7 @@ const floors = [
     floor: '1F',
     label: 'PLAY',
     kor: '플레이',
-    desc: '키즈 정글짐 · 실내 수영장 · 바베큐 · 카라오케 · 다이닝',
+    desc: '바베큐장 · 실내 수영장 · 거실 · 노래방(카라오케) — 대형 정글짐이 2층까지 이어집니다.',
     color: '#F0D94A',
     bg: '#FBF6D0',
     href: '/space/1f',
@@ -15,9 +15,9 @@ const floors = [
   {
     num: '02',
     floor: '2F',
-    label: 'MOVE',
-    kor: '무브',
-    desc: '클라이밍 월 · 놀이공간 · 가족 침실 · 온돌방',
+    label: 'CLIMB',
+    kor: '키즈룸',
+    desc: '오락기 · 우주 LED 조명 · 클라이밍 월 · 테이블축구 · 스크린 게임을 갖춘 대형 키즈룸 한 층.',
     color: '#EF8C72',
     bg: '#FDE8E1',
     href: '/space/2f',
@@ -27,7 +27,7 @@ const floors = [
     floor: '3F',
     label: 'REST',
     kor: '레스트',
-    desc: '침실 · 거실 · 소주방 · 테라스 · 사우나 / 찜질방',
+    desc: '침실 · 거실 · 테라스 · 사우나 / 편백 찜질방 — 어른들을 위한 휴식 층.',
     color: '#C2B0E8',
     bg: '#EDE8F8',
     href: '/space/3f',
@@ -54,7 +54,7 @@ export default function Space() {
           </div>
           <div className="lg:col-span-5 lg:pb-4">
             <p className="font-korean text-[#1E1E1E]/60 text-sm lg:text-base leading-relaxed">
-              투리버는 3개 층으로 구성된 독채 키즈풀빌라입니다. 각 층은 서로 다른 경험과 분위기를 담고 있으며, 아이들과 부모 모두를 위한 공간이 세심하게 설계되었습니다.
+              투리버는 3개 층으로 구성된 독채 키즈풀빌라입니다. 1층과 2층은 하나의 대형 정글짐으로 이어져 오르내리며 놀 수 있고, 3층은 어른들을 위한 온전한 휴식 공간입니다.
             </p>
           </div>
         </div>
@@ -89,8 +89,16 @@ export default function Space() {
       {/* Floor cards */}
       <section className="py-20 lg:py-32 px-6 lg:px-10 max-w-[1400px] mx-auto flex flex-col gap-16 lg:gap-24">
         {floors.map((floor, i) => (
+          <div key={floor.num}>
+          {i === 1 && (
+            <div className="flex items-center gap-3 mb-16 lg:mb-24 -mt-8 lg:-mt-16">
+              <span className="text-lg leading-none">🧗</span>
+              <span className="font-korean text-xs font-medium text-[#1E1E1E]/50">
+                1F ↔ 2F, 대형 정글짐 하나로 연결되는 구조예요
+              </span>
+            </div>
+          )}
           <div
-            key={floor.num}
             className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${
               i % 2 === 1 ? 'lg:[direction:rtl]' : ''
             }`}
@@ -157,6 +165,7 @@ export default function Space() {
                 {floor.floor} EXPLORE
               </Link>
             </div>
+          </div>
           </div>
         ))}
       </section>

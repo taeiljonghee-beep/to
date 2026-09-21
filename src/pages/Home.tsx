@@ -6,7 +6,7 @@ const FLOOR_DATA = [
     num: '01',
     floor: '1F',
     label: 'PLAY',
-    desc: '키즈 정글짐 · 실내 수영장 · 키즈 바베큐 · 카라오케 · 다이닝',
+    desc: '바베큐장 · 실내 수영장 · 거실 · 노래방(카라오케)',
     color: '#F0D94A',
     bg: '#FBF6D0',
     href: '/space/1f',
@@ -14,8 +14,8 @@ const FLOOR_DATA = [
   {
     num: '02',
     floor: '2F',
-    label: 'MOVE',
-    desc: '클라이밍 월 · 놀이공간 · 가족 침실 · 온돌방 · 어린이 활동공간',
+    label: 'CLIMB',
+    desc: '오락기 · 우주 LED 조명 · 클라이밍 월 · 테이블축구 · 스크린 게임',
     color: '#EF8C72',
     bg: '#FDE8E1',
     href: '/space/2f',
@@ -24,7 +24,7 @@ const FLOOR_DATA = [
     num: '03',
     floor: '3F',
     label: 'REST',
-    desc: '침실 · 거실 · 소주방 · 테라스 · 사우나 / 찜질방',
+    desc: '침실 · 거실 · 테라스 · 사우나 / 편백 찜질방',
     color: '#C2B0E8',
     bg: '#EDE8F8',
     href: '/space/3f',
@@ -100,23 +100,23 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 border-b border-[#1E1E1E]/10">
             {[
-              { word: 'KIDS', sub: '키즈 공간', color: '#F0D94A', href: '/kids-space' },
-              { word: 'POOL', sub: '실내 수영장', color: '#85C4DC', href: '/pool-play' },
-              { word: 'PLAY', sub: '놀이 & 엔터테인먼트', color: '#EF8C72', href: '/pool-play' },
-              { word: 'STAY', sub: '편안한 숙박', color: '#C2B0E8', href: '/stay' },
+              { word: 'KIDS', sub: '키즈 공간', color: '#F0D94A', hover: 'hover:bg-[#EF8C72]', href: '/kids-space' },
+              { word: 'POOL', sub: '실내 수영장', color: '#85C4DC', hover: 'hover:bg-[#F0D94A]', href: '/pool-play' },
+              { word: 'PLAY', sub: '놀이 & 엔터테인먼트', color: '#EF8C72', hover: 'hover:bg-[#8ECFC0]', href: '/pool-play' },
+              { word: 'STAY', sub: '편안한 숙박', color: '#C2B0E8', hover: 'hover:bg-[#85C4DC]', href: '/stay' },
             ].map((item) => (
               <Link
                 key={item.word}
                 to={item.href}
-                className="group flex flex-col items-start justify-between p-8 lg:p-12 border-r border-[#1E1E1E]/10 last:border-r-0 hover:bg-[#1E1E1E] transition-colors duration-300 cursor-pointer"
+                className={`group flex flex-col items-start justify-between p-8 lg:p-12 border-r border-[#1E1E1E]/10 last:border-r-0 ${item.hover} transition-colors duration-300 cursor-pointer`}
               >
                 <span
-                  className="font-display font-black leading-none group-hover:text-white transition-colors duration-300"
+                  className="font-display font-black leading-none"
                   style={{ fontSize: 'clamp(40px, 5vw, 80px)', color: item.color }}
                 >
                   {item.word}
                 </span>
-                <span className="font-korean text-[11px] text-[#1E1E1E]/50 group-hover:text-white/50 transition-colors duration-300 mt-8 tracking-wide">
+                <span className="font-korean text-[11px] text-[#1E1E1E]/50 group-hover:text-[#1E1E1E]/70 transition-colors duration-300 mt-8 tracking-wide">
                   {item.sub} →
                 </span>
               </Link>
@@ -140,7 +140,7 @@ export default function Home() {
             </div>
             <div className="lg:max-w-xs mt-6 lg:mt-0 lg:self-end">
               <p className="font-korean text-[#1E1E1E]/60 text-sm lg:text-base leading-relaxed">
-                3개 층, 하나의 독채 빌라.<br />각 층은 다른 경험을 담고 있습니다.
+                3개 층, 하나의 독채 빌라.<br />1층과 2층은 하나의 대형 정글짐으로 이어집니다.
               </p>
               <Link
                 to="/space"
@@ -152,9 +152,17 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-0">
-            {FLOOR_DATA.map((floor) => (
+            {FLOOR_DATA.map((floor, i) => (
+              <div key={floor.num}>
+              {i === 1 && (
+                <div className="flex items-center gap-3 py-3 px-2">
+                  <span className="text-base leading-none">🧗</span>
+                  <span className="font-korean text-[11px] font-medium text-[#1E1E1E]/50">
+                    1F ↔ 2F, 대형 정글짐 하나로 연결되어 오르내리며 놀 수 있어요
+                  </span>
+                </div>
+              )}
               <Link
-                key={floor.num}
                 to={floor.href}
                 className="group flex flex-col lg:flex-row items-stretch border border-[#1E1E1E]/10 hover:border-[#1E1E1E]/30 transition-all duration-300 overflow-hidden"
               >
@@ -188,6 +196,7 @@ export default function Home() {
                   </div>
                 </div>
               </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -232,27 +241,12 @@ export default function Home() {
         </div>
 
         {/* Right: images */}
-        <div className="lg:w-[56%] grid grid-cols-2 gap-0">
-          <div className="relative col-span-2 h-64 lg:h-[45%]">
-            <PhotoPlaceholder label="키즈 놀이 공간 전경" color="#F0D94A" dark className="w-full h-full" />
-          </div>
-          <div className="relative h-48 lg:h-[55%]">
-            <PhotoPlaceholder label="정글짐" color="#EF8C72" dark className="w-full h-full" />
+        <div className="lg:w-[56%] grid grid-rows-2 gap-0">
+          <PhotoPlaceholder label="대형 키즈룸 전경" color="#F0D94A" dark className="w-full h-64 lg:h-full" />
+          <div className="relative">
+            <PhotoPlaceholder label="1F·2F 연결 정글짐" color="#EF8C72" dark className="w-full h-64 lg:h-full" />
             <div className="absolute top-3 left-3 bg-[#EF8C72] font-display font-bold text-[10px] tracking-widest text-[#1E1E1E] px-2 py-1">
               JUNGLE GYM
-            </div>
-          </div>
-          <div className="relative h-48 lg:h-[55%] bg-[#C2B0E8]/20 flex items-center justify-center">
-            <div className="text-center p-6">
-              <div className="font-display font-black text-6xl text-[#C2B0E8] leading-none">
-                MOVE
-              </div>
-              <div className="font-display font-black text-6xl text-[#C2B0E8]/40 leading-none">
-                CLIMB
-              </div>
-              <div className="font-display font-black text-6xl text-[#C2B0E8]/20 leading-none">
-                PLAY
-              </div>
             </div>
           </div>
         </div>
@@ -328,70 +322,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DETAIL — small editorial */}
+      {/* DETAIL — color detail cards */}
       <section className="bg-[#F9F8F4] py-20 lg:py-28">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="flex flex-col lg:flex-row gap-12 items-start">
             <div className="lg:w-80 shrink-0">
               <p className="font-display font-bold text-[10px] tracking-widest text-[#1E1E1E]/30 mb-3">
-                05 — DETAIL
+                COLOR DETAILS
               </p>
-              <h2 className="font-display font-black text-4xl lg:text-5xl leading-tight text-[#1E1E1E] mb-4">
-                EVERY<br />DETAIL<br />COUNTS.
+              <h2 className="font-display font-black text-4xl lg:text-5xl leading-tight text-[#1E1E1E]">
+                작은 선택까지<br />투리버답게.
               </h2>
-              <p className="font-korean text-[#1E1E1E]/60 text-sm leading-relaxed">
-                작은 부분까지 신경 쓴 공간.<br />
-                컬러풀한 식기부터 주방의 소품 하나까지, 모든 디테일은 의도적으로 선택되었습니다.
-              </p>
             </div>
-            <div className="flex-1 grid grid-cols-3 gap-3">
-              <div className="relative">
-                <PhotoPlaceholder label="컬러 식기" color="#F0D94A" className="w-full h-56 lg:h-72" />
-                <div className="absolute bottom-3 left-3 bg-[#F0D94A] font-display font-bold text-[9px] tracking-widest text-[#1E1E1E] px-2 py-1">
-                  TABLEWARE
+            <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { label: '테이블웨어', sub: '컬러 식기 디테일', color: '#F0D94A' },
+                { label: '키친 디테일', sub: '선별한 주방 소품', color: '#EF8C72' },
+                { label: '인테리어 오브제', sub: '공간의 컬러 포인트', color: '#8ECFC0' },
+              ].map((d) => (
+                <div
+                  key={d.label}
+                  className="relative overflow-hidden aspect-[4/5]"
+                  style={{ background: `linear-gradient(160deg, ${d.color}30, ${d.color})` }}
+                >
+                  <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+                    <span className="font-display font-black text-white/25 leading-none whitespace-nowrap" style={{ fontSize: '110px' }}>
+                      TO
+                    </span>
+                  </div>
+                  <div className="absolute bottom-0 inset-x-0 p-4">
+                    <div className="font-display font-bold text-[9px] tracking-widest text-[#1E1E1E]/50 mb-1.5">
+                      PHOTO
+                    </div>
+                    <div className="flex items-baseline justify-between gap-2">
+                      <span className="font-korean font-bold text-base text-[#1E1E1E]">{d.label}</span>
+                      <span className="font-korean text-[11px] text-[#1E1E1E]/50 whitespace-nowrap">{d.sub}</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="relative mt-8">
-                <PhotoPlaceholder label="키친 디테일" color="#EF8C72" className="w-full h-56 lg:h-72" />
-                <div className="absolute bottom-3 left-3 bg-[#EF8C72] font-display font-bold text-[9px] tracking-widest text-[#1E1E1E] px-2 py-1">
-                  KITCHEN
-                </div>
-              </div>
-              <div className="relative">
-                <PhotoPlaceholder label="인테리어 오브제" color="#8ECFC0" className="w-full h-56 lg:h-72" />
-                <div className="absolute bottom-3 left-3 bg-[#8ECFC0] font-display font-bold text-[9px] tracking-widest text-[#1E1E1E] px-2 py-1">
-                  OBJECTS
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section className="relative h-[60vh] min-h-[440px] flex items-center bg-[#3D1F52]">
-        <PhotoPlaceholder
-          label="투리버 야경"
-          color="#C2B0E8"
-          dark
-          bg="transparent"
-          className="absolute inset-0 w-full h-full opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#3D1F52]/90 to-[#3D1F52]/50" />
+      <section className="relative overflow-hidden min-h-[440px] flex items-center bg-[#F0D94A] py-24">
+        {/* decorative color blocks */}
+        <div className="absolute -right-4 top-8 w-24 h-24 lg:w-32 lg:h-32 bg-[#C2B0E8] rotate-12" />
+        <div className="absolute right-20 lg:right-40 -bottom-8 w-28 h-28 lg:w-36 lg:h-36 bg-[#EF8C72] -rotate-6" />
+        <div className="absolute right-64 lg:right-96 bottom-6 w-16 h-16 bg-[#8ECFC0] rotate-45 hidden lg:block" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full">
-          <p className="font-display font-bold text-[10px] tracking-widest text-[#C2B0E8] mb-4">
-            TO RIVER
+          <p className="font-display font-bold text-[10px] tracking-widest text-[#1E1E1E]/50 mb-4">
+            READY TO PLAY?
           </p>
-          <h2 className="font-display font-black text-white leading-[0.9] mb-8"
+          <h2 className="font-display font-black text-[#1E1E1E] leading-[0.95] mb-8"
             style={{ fontSize: 'clamp(40px, 6vw, 88px)' }}>
-            오늘의 놀이를<br />시작해보세요.
+            투리버에서,<br />오늘의 놀이를 시작해보세요.
           </h2>
           <Link
             to="/reservation"
-            className="inline-block bg-[#F0D94A] text-[#1E1E1E] font-bold text-[13px] tracking-widest px-10 py-5 hover:bg-[#F7EE9A] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#1E1E1E] text-white font-bold text-[13px] tracking-widest px-10 py-5 hover:bg-[#3D1F52] transition-colors"
           >
-            예약하기
+            예약하기 →
           </Link>
+          <p className="font-korean text-[11px] text-[#1E1E1E]/50 mt-3">
+            실제 예약 링크가 연결되면 요금과 잔여 객실을 확인할 수 있습니다.
+          </p>
         </div>
       </section>
     </main>
