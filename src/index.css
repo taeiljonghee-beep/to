@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-ivory: #F9F8F4;
+  --color-charcoal: #1E1E1E;
+  --color-charcoal-light: #3A3A3A;
+  --color-plum: #3D1F52;
+  --color-plum-light: #5A3470;
+  --color-lavender: #C2B0E8;
+  --color-lavender-light: #DDD4F5;
+  --color-lavender-muted: #EDE8F8;
+  --color-butter: #F0D94A;
+  --color-butter-light: #F7EE9A;
+  --color-butter-pale: #FBF6D0;
+  --color-coral: #EF8C72;
+  --color-coral-light: #F7BDAD;
+  --color-coral-pale: #FDE8E1;
+  --color-mint: #8ECFC0;
+  --color-mint-light: #BDE8DF;
+  --color-mint-pale: #E2F5F1;
+  --color-sky: #85C4DC;
+  --color-sky-light: #B8DCF0;
+  --color-sky-pale: #E0F1FA;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Outfit', 'Noto Sans KR', sans-serif;
+  --font-korean: 'Noto Sans KR', 'Outfit', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #F9F8F4;
+  color: #1E1E1E;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #C2B0E8; border-radius: 3px; }
+
+.font-display { font-family: 'Barlow Condensed', sans-serif; }
+.font-korean { font-family: 'Noto Sans KR', sans-serif; }
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
